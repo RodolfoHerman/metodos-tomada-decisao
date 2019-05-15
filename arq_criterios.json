@@ -1,0 +1,14 @@
+[
+    {
+        "preferencia1": "manutencao",
+        "criterio": ">",
+        "preferencia2": "compra",
+        "nivel": "3"
+    },
+    {
+        "preferencia1": "taxa",
+        "criterio": ">",
+        "preferencia2": "compra",
+        "nivel": "5"
+    }
+]
