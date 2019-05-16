@@ -1,0 +1,23 @@
+[
+    {
+        "descricao": "Casa A",
+        "preco": "290000",
+        "distancia": "1.7",
+        "estado": "bom",
+        "area": "100"
+    },
+    {
+        "descricao": "Casa B",
+        "preco": "420000",
+        "distancia": "5.3",
+        "estado": "ruim",
+        "area": "270"
+    },
+    {
+        "descricao": "Casa C",
+        "preco": "690000",
+        "distancia": "2.5",
+        "estado": "otimo",
+        "area": "180"
+    }
+]

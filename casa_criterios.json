@@ -1,0 +1,38 @@
+[
+    {
+        "preferencia1": "area",
+        "criterio": ">",
+        "preferencia2": "preco",
+        "nivel": "3"
+    },
+    {
+        "preferencia1": "area",
+        "criterio": ">",
+        "preferencia2": "estado",
+        "nivel": "3"
+    },
+    {
+        "preferencia1": "distancia",
+        "criterio": ">",
+        "preferencia2": "area",
+        "nivel": "3"
+    },
+    {
+        "preferencia1": "preco",
+        "criterio": ">",
+        "preferencia2": "estado",
+        "nivel": "5"
+    },
+    {
+        "preferencia1": "distancia",
+        "criterio": ">",
+        "preferencia2": "estado",
+        "nivel": "7"
+    },
+    {
+        "preferencia1": "distancia",
+        "criterio": ">",
+        "preferencia2": "preco",
+        "nivel": "5"
+    }
+]
