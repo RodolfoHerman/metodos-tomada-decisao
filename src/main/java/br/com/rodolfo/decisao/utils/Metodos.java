@@ -9,6 +9,43 @@ public class Metodos {
 
     private Metodos() {}
 
+    public static double[] calcularMediaMatriz(double[][] matriz) {
+
+        int tamanho = matriz[0].length;
+        double[] media = new double[tamanho];
+
+        for(int x = 0; x < tamanho; x++) {
+
+            double temp = 0.0;
+
+            for(int y = 0; y < tamanho; y++) {
+
+                temp += matriz[y][x];
+            }
+
+            for(int y = 0; y < tamanho; y++) {
+
+                matriz[y][x] = matriz[y][x]/temp;
+            }
+            
+        }
+
+        for(int x = 0; x < tamanho; x++) {
+            
+            double temp = 0.0;
+
+            for(int y = 0; y < tamanho; y++) {
+
+                temp += matriz[x][y];
+            }
+
+            media[x] = temp/tamanho;
+        }
+
+        return media;
+    }
+    
+    
     public static double[][] matrizPreferencia(List<Double> valores, boolean preferencia) {
 
         double[][] matriz = criarMatrizNeutra(valores.size());
