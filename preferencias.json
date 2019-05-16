@@ -1,0 +1,14 @@
+[
+    {
+        "preco": "<",
+        "distancia": "<",
+        "area": ">",
+        "compra": "<",
+        "taxa": "<",
+        "consumo": ">",
+        "potencia": ">",
+        "passageiros": ">",
+        "espaco": ">",
+        "bagageiro": ">"
+    }
+]

@@ -2,20 +2,20 @@ package br.com.rodolfo.decisao.models.enums;
 
 public enum Tipo {
 
-    RUIM(1, "ruim"),
-    BOM(3, "bom"),
-    OTIMO(7, "otimo");
+    RUIM(1.0, "ruim"),
+    BOM(3.0, "bom"),
+    OTIMO(7.0, "otimo");
 
-    private Integer criterio;
+    private Double criterio;
     private String descricao;
 
-    private Tipo(Integer criterio, String descricao) {
+    private Tipo(Double criterio, String descricao) {
 
         this.criterio = criterio;
         this.descricao = descricao;
     }
 
-    public Integer getCriterio() {
+    public Double getCriterio() {
 
         return this.criterio;
     }
