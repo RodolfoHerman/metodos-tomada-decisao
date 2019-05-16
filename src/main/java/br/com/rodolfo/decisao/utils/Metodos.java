@@ -119,4 +119,19 @@ public class Metodos {
         
         return preferencia.equals(">");
     }
+
+    public static boolean verificarArquivos(List<String> arquivos, String[] lista) {
+        
+        int qtd = arquivos.size();
+
+        for(String arq : lista) {
+
+            if(arquivos.contains(arq)) {
+
+                qtd--;
+            }
+        }
+
+        return qtd == 0 ? true : false;
+    }
 }

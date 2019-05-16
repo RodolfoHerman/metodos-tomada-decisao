@@ -20,7 +20,7 @@ public class PreferenciaService {
 
     public PreferenciaService() {}
 
-    public List<Preferencia> buscarCriterios(String caminho) throws JsonParseException, JsonMappingException, IOException {
+    public List<Preferencia> buscarPreferencia(String caminho) throws JsonParseException, JsonMappingException, IOException {
         
         return Arrays.asList(objectMapper.readValue(new File(caminho), Preferencia[].class));
     }
