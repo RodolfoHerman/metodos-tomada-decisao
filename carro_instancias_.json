@@ -2,31 +2,31 @@
   {
     "descricao": "Mini-Van",
     "compra": "120000.00",
-    "manutencao": "alta",
+    "manutencao": "otima",
     "taxa": "800.00",
     "consumo": "11",
     "potencia": "120",
-    "versatil": "baixo",
+    "versatil": "ruim",
     "passageiros": "8",
     "espaco": "20",
     "bagageiro": "100",
-    "conforto": "medio",
-    "seguranca": "medio",
-    "estilo": "baixo"
+    "conforto": "bom",
+    "seguranca": "bom",
+    "estilo": "ruim"
   },
   {
     "descricao": "SUV",
     "compra": "100000.00",
-    "manutencao": "media",
+    "manutencao": "bom",
     "taxa": "600.00",
     "consumo": "13",
     "potencia": "110",
-    "versatil": "medio",
+    "versatil": "bom",
     "passageiros": "5",
     "espaco": "15",
     "bagageiro": "120",
-    "conforto": "alto",
-    "seguranca": "medio",
-    "estilo": "medio"
+    "conforto": "otimo",
+    "seguranca": "bom",
+    "estilo": "bom"
   }
 ]
