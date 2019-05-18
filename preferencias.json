@@ -2,13 +2,19 @@
     {
         "preco": "<",
         "distancia": "<",
+        "estado": ">",
         "area": ">",
         "compra": "<",
+        "manutencao": "<",
         "taxa": "<",
         "consumo": ">",
         "potencia": ">",
+        "versatil": ">",
         "passageiros": ">",
         "espaco": ">",
-        "bagageiro": ">"
+        "bagageiro": ">",
+        "conforto": ">",
+        "seguranca": ">",
+        "estilo": ">"
     }
 ]

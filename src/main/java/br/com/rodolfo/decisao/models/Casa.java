@@ -6,14 +6,14 @@ package br.com.rodolfo.decisao.models;
 public class Casa {
 
     private String descricao;
-    private double preco;
-    private double distancia;
+    private String preco;
+    private String distancia;
     private String estado;
-    private double area;
+    private String area;
 
     public Casa() {}
 
-    public Casa(String descricao, double preco, double distancia, String estado, double area) {
+    public Casa(String descricao, String preco, String distancia, String estado, String area) {
         this.descricao = descricao;
         this.preco = preco;
         this.distancia = distancia;
@@ -30,19 +30,19 @@ public class Casa {
         this.descricao = descricao;
     }
 
-    public double getPreco() {
+    public String getPreco() {
         return this.preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
     }
 
-    public double getDistancia() {
+    public String getDistancia() {
         return this.distancia;
     }
 
-    public void setDistancia(double distancia) {
+    public void setDistancia(String distancia) {
         this.distancia = distancia;
     }
 
@@ -54,16 +54,16 @@ public class Casa {
         this.estado = estado;
     }
 
-    public double getArea() {
+    public String getArea() {
         return this.area;
     }
 
-    public void setArea(double area) {
+    public void setArea(String area) {
         this.area = area;
     }
 
-    @Override
-    public String toString() {
+    
+    public String imprimirCampos() {
         return "{" +
             " descricao='" + getDescricao() + "'" +
             " preco='" + getPreco() + "'" +
@@ -71,6 +71,11 @@ public class Casa {
             ", estado='" + getEstado() + "'" +
             ", area='" + getArea() + "'" +
             "}";
+    }
+
+    @Override
+    public String toString() {
+        return getDescricao();
     }
 
 }

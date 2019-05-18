@@ -7,22 +7,22 @@ package br.com.rodolfo.decisao.models;
 public class Carro {
 
     private String descricao;
-    private double compra;
+    private String compra;
     private String manutencao;
-    private double taxa;
-    private double consumo;
-    private double potencia;
+    private String taxa;
+    private String consumo;
+    private String potencia;
     private String versatil;
-    private double passageiros;
-    private double espaco;
-    private double bagageiro;
+    private String passageiros;
+    private String espaco;
+    private String bagageiro;
     private String conforto;
     private String seguranca;
     private String estilo;
     
     public Carro() {}
 
-    public Carro(String descricao, double compra, String manutencao, double taxa, double consumo, double potencia, String versatil, double passageiros, double espaco, double bagageiro, String conforto, String seguranca, String estilo) {
+    public Carro(String descricao, String compra, String manutencao, String taxa, String consumo, String potencia, String versatil, String passageiros, String espaco, String bagageiro, String conforto, String seguranca, String estilo) {
         this.descricao = descricao;
         this.compra = compra;
         this.manutencao = manutencao;
@@ -46,11 +46,11 @@ public class Carro {
         this.descricao = descricao;
     }
 
-    public double getCompra() {
+    public String getCompra() {
         return this.compra;
     }
 
-    public void setCompra(double compra) {
+    public void setCompra(String compra) {
         this.compra = compra;
     }
 
@@ -62,27 +62,27 @@ public class Carro {
         this.manutencao = manutencao;
     }
 
-    public double getTaxa() {
+    public String getTaxa() {
         return this.taxa;
     }
 
-    public void setTaxa(double taxa) {
+    public void setTaxa(String taxa) {
         this.taxa = taxa;
     }
 
-    public double getConsumo() {
+    public String getConsumo() {
         return this.consumo;
     }
 
-    public void setConsumo(double consumo) {
+    public void setConsumo(String consumo) {
         this.consumo = consumo;
     }
 
-    public double getPotencia() {
+    public String getPotencia() {
         return this.potencia;
     }
 
-    public void setPotencia(double potencia) {
+    public void setPotencia(String potencia) {
         this.potencia = potencia;
     }
 
@@ -94,27 +94,27 @@ public class Carro {
         this.versatil = versatil;
     }
 
-    public double getPassageiros() {
+    public String getPassageiros() {
         return this.passageiros;
     }
 
-    public void setPassageiros(double passageiros) {
+    public void setPassageiros(String passageiros) {
         this.passageiros = passageiros;
     }
 
-    public double getEspaco() {
+    public String getEspaco() {
         return this.espaco;
     }
 
-    public void setEspaco(double espaco) {
+    public void setEspaco(String espaco) {
         this.espaco = espaco;
     }
 
-    public double getBagageiro() {
+    public String getBagageiro() {
         return this.bagageiro;
     }
 
-    public void setBagageiro(double bagageiro) {
+    public void setBagageiro(String bagageiro) {
         this.bagageiro = bagageiro;
     }
 
@@ -142,8 +142,7 @@ public class Carro {
         this.estilo = estilo;
     }
 
-    @Override
-    public String toString() {
+    public String imprimirCampos() {
         return "{" +
             " descricao='" + getDescricao() + "'" +
             " compra='" + getCompra() + "'" +
@@ -159,6 +158,11 @@ public class Carro {
             ", seguranca='" + getSeguranca() + "'" +
             ", estilo='" + getEstilo() + "'" +
             "}";
+    }
+
+    @Override
+    public String toString() {
+        return getDescricao();
     }
 
 }

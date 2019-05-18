@@ -1,11 +1,18 @@
 package br.com.rodolfo.decisao.utils;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
+
+import br.com.rodolfo.decisao.models.Criterio;
 
 /**
  * Metodos
  */
 public class Metodos {
+
+    private static final Pattern NUMERO = Pattern.compile("^(-?0|-?[1-9]\\d*)(\\.\\d+)?(E\\d+)?$");
 
     private Metodos() {}
 
@@ -65,13 +72,13 @@ public class Metodos {
 
                     if(preferencia) {
 
-                        matriz[x][y] = (temp1 < temp2) ? criterio : 1.0/criterio;
-                        matriz[y][x] = (temp1 < temp2) ? 1.0/criterio : criterio;
+                        matriz[x][y] = (temp1 > temp2) ? criterio : 1.0/criterio;
+                        matriz[y][x] = (temp1 > temp2) ? 1.0/criterio : criterio;
 
                     } else {
 
-                        matriz[x][y] = (temp1 < temp2) ? 1.0/criterio : criterio;
-                        matriz[y][x] = (temp1 < temp2) ? criterio : 1.0/criterio;
+                        matriz[x][y] = (temp1 < temp2) ? criterio : 1.0/criterio;
+                        matriz[y][x] = (temp1 < temp2) ? 1.0/criterio : criterio;
                     }
                 }
             }
@@ -114,6 +121,49 @@ public class Metodos {
 
         return matriz;
     }
+
+    public static double[] criarVetorCriterios(List<Criterio> criterios, Map<String,Integer> mapaCriterio) {
+
+        double[][] matrizCriterios = Metodos.criarMatrizNeutra(mapaCriterio.size());
+
+        for(Criterio criterio : criterios) {
+
+            int indice1 = mapaCriterio.get(criterio.getPreferencia1());
+            int indice2 = mapaCriterio.get(criterio.getPreferencia2());
+
+            if(criterio.getCriterio().equals(">")) {
+
+                matrizCriterios[indice1][indice2] = criterio.getNivel();
+                matrizCriterios[indice2][indice1] = 1.0/criterio.getNivel();
+
+            } else {
+
+                matrizCriterios[indice1][indice2] = 1.0/criterio.getNivel();
+                matrizCriterios[indice2][indice1] = criterio.getNivel();
+            }
+        }
+
+        return Metodos.calcularMediaMatriz(matrizCriterios);
+    }
+
+    public static double[] multiplicarVetorComMatriz(double[] vetor, double[][] matriz) {
+
+        List<Double> resultado = new ArrayList<>();
+
+        for(int x = 0; x < matriz.length; x++) {
+            
+            double temp = 0.0;
+
+            for(int y = 0; y < matriz[0].length; y++) {
+
+                temp += matriz[x][y] * vetor[y];
+            }
+
+            resultado.add(temp);
+        }
+
+        return resultado.stream().mapToDouble(Double::doubleValue).toArray();
+    }
     
     public static boolean preferenciaParaBoolean(String preferencia) {
         
@@ -133,5 +183,41 @@ public class Metodos {
         }
 
         return qtd == 0 ? true : false;
+    }
+
+    public static String retornarNomeMetodo(String criterio) {
+        
+        return "get".concat("" + criterio.toUpperCase().charAt(0)).concat(criterio.substring(1)); 
+    }
+
+    public static boolean isNumero(String numero) {
+        return numero != null && NUMERO.matcher(numero).matches();
+    }
+
+    public static void imprimirVetor(double[] vetor) {
+        
+        for(double valor : vetor) {
+
+            System.out.print(valor + "\t");
+        }
+
+        System.out.println();
+    }
+
+    public static void imprimirMatriz(double[][] matriz) {
+        
+        for(int x = 0; x < matriz.length; x++) {
+            for(int y = 0; y < matriz[0].length; y++) {
+                System.out.print(matriz[x][y] + "\t\t\t");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void imprimirFormatado(double[] vetor, double[][] preferencias, double[] resultado) {
+        
+        
+
+
     }
 }

@@ -10,6 +10,7 @@ import java.util.Properties;
 import java.util.ResourceBundle;
 
 import br.com.rodolfo.decisao.StartApp;
+import br.com.rodolfo.decisao.algorithms.AHP;
 import br.com.rodolfo.decisao.config.Configuracoes;
 import br.com.rodolfo.decisao.models.Carro;
 import br.com.rodolfo.decisao.models.Casa;
@@ -58,11 +59,11 @@ public class TelaController implements Initializable {
     private List<Criterio> carrosCriterios = new ArrayList<>();
     private List<Casa> casas = new ArrayList<>();
     private List<Criterio> casasCriteriios = new ArrayList<>();
-    private Preferencia prefrencia;
+    private Preferencia preferencia;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        
         Properties properties = new Properties();
 
         try (InputStream is = TelaController.class.getClassLoader().getResourceAsStream(PROPERTIES)) {
@@ -97,7 +98,10 @@ public class TelaController implements Initializable {
     @FXML
     public void btnAnalisarAction() {
 
-        System.out.println("TESTE");
+        // AHP2<Carro> ahp2 = new AHP2<>(carros, carrosCriterios, preferencia);
+        // AHP<Casa> ahp = new AHP<>(casas, casasCriteriios, preferencia);
+        AHP<Carro> ahp = new AHP<>(carros, carrosCriterios, preferencia);
+        ahp.executar();
     }
 
     @FXML
@@ -166,7 +170,7 @@ public class TelaController implements Initializable {
             carrosCriterios.addAll(criterioService.buscarCriterios(caminho.concat("//").concat(configuracoes.carroCriterios)));
             casas.addAll(casaService.buscarInstancias(caminho.concat("//").concat(configuracoes.casaInstancias)));
             casasCriteriios.addAll(criterioService.buscarCriterios(caminho.concat("//").concat(configuracoes.casaCriterios)));
-            prefrencia = preferenciaService.buscarPreferencia(caminho.concat("//").concat(configuracoes.arquivoPreferencias)).get(0);
+            preferencia = preferenciaService.buscarPreferencia(caminho.concat("//").concat(configuracoes.arquivoPreferencias)).get(0);
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
