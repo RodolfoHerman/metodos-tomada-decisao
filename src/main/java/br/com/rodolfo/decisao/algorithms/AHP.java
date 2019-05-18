@@ -26,7 +26,7 @@ public class AHP<T> {
     private List<Criterio> criterios;
     private Preferencia preferencia;
     private Map<String, Integer> mapaCriterio;
-    private Map<String, Integer> mapaInstancia;
+    // private Map<String, Integer> mapaInstancia;
     private Class<?> classe;
 
     public AHP(List<T> objetos, List<Criterio> criterios, Preferencia preferencia) {
@@ -118,7 +118,7 @@ public class AHP<T> {
     private void criarMapas() {
 
         this.mapaCriterio = new HashMap<>();
-        this.mapaInstancia = new HashMap<>();
+        // this.mapaInstancia = new HashMap<>();
         int posicao = 0;
 
         List<String> criterios = Arrays.asList(this.classe.getDeclaredFields()).stream()
@@ -137,18 +137,18 @@ public class AHP<T> {
             mapaCriterio.put(criterio, posicao++);
         }
 
-        posicao = 0;
+        // posicao = 0;
 
-        for (String instancia : instancias) {
+        // for (String instancia : instancias) {
 
-            mapaInstancia.put(instancia, posicao++);
-        }
+        //     mapaInstancia.put(instancia, posicao++);
+        // }
 
     }
 
     private double[][] criarMatrizesPreferencia() {
         
-        double[][] mediaCriterios = new double[mapaInstancia.size()][mapaCriterio.size()];
+        double[][] mediaCriterios = new double[objetos.size()][mapaCriterio.size()];
         Map<String,double[]> valores = new HashMap<>();
         
         try {
