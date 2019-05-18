@@ -214,10 +214,25 @@ public class Metodos {
         }
     }
 
-    public static void imprimirFormatado(double[] vetor, double[][] preferencias, double[] resultado) {
+    public static String formatarPalavra(String palavra) {
         
+        int tamanho  = palavra.length();
+        int desejado = 6;
         
+        if(tamanho >= desejado) {
 
+            palavra = palavra.substring(0, desejado);
 
+        } else {
+
+            int dif = desejado - tamanho;
+
+            for(int x = 0; x < dif; x++) {
+
+                palavra = palavra.concat(" ");
+            }
+        }
+
+        return palavra;
     }
 }

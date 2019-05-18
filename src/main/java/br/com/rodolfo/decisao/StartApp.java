@@ -22,8 +22,10 @@ public class StartApp extends Application {
         mainStage = stage;
 
         mainStage.setTitle("Tomada de Decisão");
-        mainStage.setResizable(false);
+        mainStage.setMinWidth(900);
+        mainStage.setMinHeight(700);
         mainStage.centerOnScreen();
+        mainStage.setMaximized(true);
 
         mainStage.setOnCloseRequest(WindowEvent -> {
 

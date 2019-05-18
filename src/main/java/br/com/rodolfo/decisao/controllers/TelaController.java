@@ -27,6 +27,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.DirectoryChooser;
 
@@ -98,10 +99,33 @@ public class TelaController implements Initializable {
     @FXML
     public void btnAnalisarAction() {
 
-        // AHP2<Carro> ahp2 = new AHP2<>(carros, carrosCriterios, preferencia);
-        // AHP<Casa> ahp = new AHP<>(casas, casasCriteriios, preferencia);
-        AHP<Carro> ahp = new AHP<>(carros, carrosCriterios, preferencia);
-        ahp.executar();
+        RadioButton radioMetodos  = (RadioButton) metodos.getToggles().filtered(Toggle::isSelected).get(0);
+        RadioButton radioProblema = (RadioButton) problemas.getToggles().filtered(Toggle::isSelected).get(0);
+
+        this.textArea.clear();
+
+        if(radioMetodos.getText().equals("AHP")) {
+
+            if(radioProblema.getText().equals("Casa")) {
+
+                AHP<Casa> ahp = new AHP<>(casas, casasCriteriios, preferencia);
+                textArea.setText(ahp.executar());
+
+            } else {
+
+                AHP<Carro> ahp = new AHP<>(carros, carrosCriterios, preferencia);
+                textArea.setText(ahp.executar());
+            }
+
+        } else {
+
+            if(radioProblema.getText().equals("Casa")) {
+
+            } else {
+
+            }
+
+        }
     }
 
     @FXML
@@ -163,6 +187,7 @@ public class TelaController implements Initializable {
     private void abrirArquivosJson(File file) {
 
         String caminho = file.getAbsolutePath();
+        textArea.clear();
 
         try {
             

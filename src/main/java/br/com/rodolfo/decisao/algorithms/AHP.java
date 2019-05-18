@@ -54,7 +54,7 @@ public class AHP<T> {
 
         for (Map.Entry<String,Integer> entry : mapaCriterio.entrySet()) {
 
-            temp.append(entry.getKey()).append("\t\t");
+            temp.append(Metodos.formatarPalavra(entry.getKey())).append("\t\t");
         }
 
         imprimir.append(temp.toString());
@@ -67,15 +67,15 @@ public class AHP<T> {
 
         imprimir.append(System.lineSeparator()).append(System.lineSeparator())
                 .append("*** Critérios Calculados ***").append(System.lineSeparator()).append(System.lineSeparator())
-                .append("##").append("\t\t")
+                .append("-------").append("\t\t")
                 .append(temp.toString()).append(System.lineSeparator());
 
         temp.setLength(0);
 
         for(int x = 0; x < preferencias.length; x++) {
 
-            temp.append(objetos.get(posicao).toString()).append("\t\t");
-            imprimir.append(objetos.get(posicao).toString()).append("\t\t");
+            temp.append(Metodos.formatarPalavra(objetos.get(posicao).toString())).append("\t\t");
+            imprimir.append(Metodos.formatarPalavra(objetos.get(posicao).toString())).append("\t\t");
             dto.add(new InstanciaDTO(objetos.get(posicao).toString()));
 
             for (Map.Entry<String,Integer> entry : mapaCriterio.entrySet()) {
@@ -103,18 +103,14 @@ public class AHP<T> {
         imprimir.append(System.lineSeparator()).append(System.lineSeparator());
 
         dto.stream()
-            .sorted(Comparator.comparing(InstanciaDTO::getValor))
+            // .sorted(Comparator.comparing(InstanciaDTO::getValor))
             .sorted(Comparator.reverseOrder())
             .findFirst()
             .ifPresent(obj -> imprimir.append("A melhor escolha é : '")
-                                      .append(obj.descricao)
+                                      .append(Metodos.formatarPalavra(obj.descricao))
                                       .append("' com valor de : '")
                                       .append(String.format("%.4f", obj.valor))
                                       .append("'"));
-
-
-        System.out.println(imprimir.toString());
-
 
         return imprimir.toString();
     }
@@ -148,7 +144,6 @@ public class AHP<T> {
             mapaInstancia.put(instancia, posicao++);
         }
 
-        // System.out.println(mapaCriterio);
     }
 
     private double[][] criarMatrizesPreferencia() {
