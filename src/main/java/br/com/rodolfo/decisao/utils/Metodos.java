@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import br.com.rodolfo.decisao.models.Criterio;
+import br.com.rodolfo.decisao.models.enums.Tipo;
 
 /**
  * Metodos
@@ -234,5 +235,18 @@ public class Metodos {
         }
 
         return palavra;
+    }
+
+    public static double recuperarValor(String valor) {
+
+        try {
+            
+            return Metodos.isNumero(valor) ? Double.valueOf(valor) : Tipo.toEnum(valor).getCriterio();
+
+        } catch (Exception e) {
+            
+            return 0.0;
+        }
+
     }
 }
