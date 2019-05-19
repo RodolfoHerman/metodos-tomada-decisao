@@ -1,23 +1,140 @@
 [
     {
         "descricao": "Casa A",
-        "preco": "290000",
-        "distancia": "1.7",
-        "estado": "ruim",
-        "area": "100"
+        "preco": {
+            "valor": "290000",
+            "subitens": [
+                {
+                    "descricao": "compra",
+                    "valor": "290000",
+                    "peso": "40"
+                },
+                {
+                    "descricao": "condominio",
+                    "valor": "800",
+                    "peso": "60"
+                }
+            ]
+        },
+        "distancia": {
+            "valor": "1.7",
+            "subitens": null
+        },
+        "estado": {
+            "valor": "ruim",
+            "subitens": null
+        },
+        "area": {
+            "valor": "100",
+            "subitens": [
+                {
+                    "descricao": "apartamento",
+                    "valor": "100",
+                    "peso": "50"
+                },
+                {
+                    "descricao": "garagem",
+                    "valor": "1",
+                    "peso": "40"
+                },
+                {
+                    "descricao": "cozinha",
+                    "valor": "pequeno",
+                    "peso": "10"
+                }
+            ]
+        }
     },
     {
         "descricao": "Casa B",
-        "preco": "420000",
-        "distancia": "5.3",
-        "estado": "bom",
-        "area": "260"
+        "preco": {
+            "valor": "420000",
+            "subitens": [
+                {
+                    "descricao": "compra",
+                    "valor": "420000",
+                    "peso": ""
+                },
+                {
+                    "descricao": "condominio",
+                    "valor": "1500",
+                    "peso": ""
+                }
+            ]
+        },
+        "distancia": {
+            "valor": "5.3",
+            "subitens": null
+        },
+        "estado": {
+            "valor": "bom",
+            "subitens": null
+        },
+        "area": {
+            "valor": "260",
+            "subitens": [
+                {
+                    "descricao": "apartamento",
+                    "valor": "260",
+                    "peso": ""
+                },
+                {
+                    "descricao": "garagem",
+                    "valor": "2",
+                    "peso": ""
+                },
+                {
+                    "descricao": "cozinha",
+                    "valor": "grande",
+                    "peso": ""
+                }
+            ]
+        }
     },
     {
         "descricao": "Casa C",
-        "preco": "690000",
-        "distancia": "2.5",
-        "estado": "otimo",
-        "area": "180"
+        "preco": {
+            "valor": "690000",
+            "subitens": [
+                {
+                    "descricao": "compra",
+                    "valor": "690000",
+                    "peso": ""
+                },
+                {
+                    "descricao": "condominio",
+                    "valor": "800",
+                    "peso": ""
+                }
+            ]
+        },
+        "distancia": {
+            "valor": "2.5",
+            "subitens": null
+        },
+        "estado": {
+            "valor": "otimo",
+            "subitens": null
+        },
+        "area": {
+            "valor": "180",
+            "subitens": [
+                {
+                    "descricao": "apartamento",
+                    "valor": "180",
+                    "peso": ""
+                },
+                {
+                    "descricao": "garagem",
+                    "valor": "1",
+                    "peso": ""
+                },
+                {
+                    "descricao": "cozinha",
+                    "valor": "grande",
+                    "peso": ""
+                }
+            ]
+        }
     }
 ]

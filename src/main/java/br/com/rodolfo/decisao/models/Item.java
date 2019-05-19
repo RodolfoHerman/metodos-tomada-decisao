@@ -10,6 +10,8 @@ public class Item {
     private String valor;
     private List<Subitem> subitens;
 
+    public Item() {}
+
     public Item(String valor) {
 
         this.valor = valor;

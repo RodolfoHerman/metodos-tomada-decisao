@@ -9,6 +9,7 @@ public class Subitem  {
     private String valor;
     private String peso;
     
+    public Subitem() {}
 
     public Subitem(String descricao, String valor, String peso) {
         this.descricao = descricao;

@@ -3,6 +3,7 @@ package br.com.rodolfo.decisao.controllers;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +65,7 @@ public class TelaController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
         Properties properties = new Properties();
 
         try (InputStream is = TelaController.class.getClassLoader().getResourceAsStream(PROPERTIES)) {
@@ -99,32 +100,39 @@ public class TelaController implements Initializable {
     @FXML
     public void btnAnalisarAction() {
 
-        RadioButton radioMetodos  = (RadioButton) metodos.getToggles().filtered(Toggle::isSelected).get(0);
+        RadioButton radioMetodos = (RadioButton) metodos.getToggles().filtered(Toggle::isSelected).get(0);
         RadioButton radioProblema = (RadioButton) problemas.getToggles().filtered(Toggle::isSelected).get(0);
 
         this.textArea.clear();
 
-        if(radioMetodos.getText().equals("AHP")) {
+        try {
 
-            if(radioProblema.getText().equals("Casa")) {
+            if (radioMetodos.getText().equals("AHP")) {
 
-                AHP<Casa> ahp = new AHP<>(casas, casasCriteriios, preferencia);
-                textArea.setText(ahp.executar());
+                if (radioProblema.getText().equals("Casa")) {
 
-            } else {
+                    AHP<Casa> ahp = new AHP<>(casas, casasCriteriios, preferencia);
+                    textArea.setText(ahp.executar());
 
-                AHP<Carro> ahp = new AHP<>(carros, carrosCriterios, preferencia);
-                textArea.setText(ahp.executar());
-            }
+                } else {
 
-        } else {
-
-            if(radioProblema.getText().equals("Casa")) {
+                    AHP<Carro> ahp = new AHP<>(carros, carrosCriterios, preferencia);
+                    textArea.setText(ahp.executar());
+                }
 
             } else {
 
-            }
+                if (radioProblema.getText().equals("Casa")) {
 
+                } else {
+
+                }
+
+            }
+        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
+                | InvocationTargetException e) {
+            
+            textArea.setText(e.getMessage());
         }
     }
 
@@ -190,12 +198,15 @@ public class TelaController implements Initializable {
         textArea.clear();
 
         try {
-            
+
             carros.addAll(carroService.buscarInstancias(caminho.concat("//").concat(configuracoes.carroInstancias)));
-            carrosCriterios.addAll(criterioService.buscarCriterios(caminho.concat("//").concat(configuracoes.carroCriterios)));
+            carrosCriterios
+                    .addAll(criterioService.buscarCriterios(caminho.concat("//").concat(configuracoes.carroCriterios)));
             casas.addAll(casaService.buscarInstancias(caminho.concat("//").concat(configuracoes.casaInstancias)));
-            casasCriteriios.addAll(criterioService.buscarCriterios(caminho.concat("//").concat(configuracoes.casaCriterios)));
-            preferencia = preferenciaService.buscarPreferencia(caminho.concat("//").concat(configuracoes.arquivoPreferencias)).get(0);
+            casasCriteriios
+                    .addAll(criterioService.buscarCriterios(caminho.concat("//").concat(configuracoes.casaCriterios)));
+            preferencia = preferenciaService
+                    .buscarPreferencia(caminho.concat("//").concat(configuracoes.arquivoPreferencias)).get(0);
 
         } catch (IOException e) {
             // TODO Auto-generated catch block

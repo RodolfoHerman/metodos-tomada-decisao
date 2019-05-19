@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 import br.com.rodolfo.decisao.models.Criterio;
 import br.com.rodolfo.decisao.models.InstanciaDTO;
+import br.com.rodolfo.decisao.models.Item;
 import br.com.rodolfo.decisao.models.Preferencia;
 import br.com.rodolfo.decisao.models.enums.Tipo;
 import br.com.rodolfo.decisao.utils.Metodos;
@@ -39,7 +40,8 @@ public class AHP<T> {
         criarMapas();
     }
 
-    public String executar() {
+    public String executar() throws NoSuchMethodException, SecurityException, IllegalAccessException,
+            IllegalArgumentException, InvocationTargetException {
 
         StringBuilder imprimir = new StringBuilder();
         StringBuilder temp     = new StringBuilder();
@@ -47,7 +49,7 @@ public class AHP<T> {
         int posicao = 0;
 
         double[] vetorCriterios = Metodos.criarVetorCriterios(criterios, mapaCriterio);
-        double[][] preferencias = criarMatrizesPreferencia();
+        double[][] preferencias = calcularMatriz();
         double[] resposta       = Metodos.multiplicarVetorComMatriz(vetorCriterios, preferencias);
 
         imprimir.append("*** Critérios do Usuário ***").append(System.lineSeparator()).append(System.lineSeparator());
@@ -118,7 +120,6 @@ public class AHP<T> {
     private void criarMapas() {
 
         this.mapaCriterio = new HashMap<>();
-        // this.mapaInstancia = new HashMap<>();
         int posicao = 0;
 
         List<String> criterios = Arrays.asList(this.classe.getDeclaredFields()).stream()
@@ -127,68 +128,38 @@ public class AHP<T> {
                 .map(f -> f.getName())
                 .collect(Collectors.toList());
 
-        // criterios.stream().forEach(System.out::println);
-
-        List<String> instancias = objetos.stream().sorted(Comparator.comparing(Object::toString)).map(o -> o.toString())
-                .collect(Collectors.toList());
+        // List<String> instancias = objetos.stream().sorted(Comparator.comparing(Object::toString)).map(o -> o.toString())
+        //         .collect(Collectors.toList());
 
         for (String criterio : criterios) {
 
             mapaCriterio.put(criterio, posicao++);
         }
 
-        // posicao = 0;
-
-        // for (String instancia : instancias) {
-
-        //     mapaInstancia.put(instancia, posicao++);
-        // }
-
     }
 
-    private double[][] criarMatrizesPreferencia() {
+    private double[][] calcularMatriz() throws NoSuchMethodException, SecurityException,
+            IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         
-        double[][] mediaCriterios = new double[objetos.size()][mapaCriterio.size()];
+        double[][] matriz = new double[objetos.size()][mapaCriterio.size()];
         Map<String,double[]> valores = new HashMap<>();
-        
-        try {
 
-            for (Map.Entry<String,Integer> entry : mapaCriterio.entrySet()) {
+        for (Map.Entry<String,Integer> entry : mapaCriterio.entrySet()) {
+            
+            List<Double> temp   = new ArrayList<>();
+            Method criarMetodo1 = this.classe.getMethod(Metodos.retornarNomeMetodo(entry.getKey()), new Class[] {});
 
-                String nomeMetodo = Metodos.retornarNomeMetodo(entry.getKey());
-                Method instanciaMetodo = this.classe.getMethod(nomeMetodo, new Class[] {});
-                
-                List<Double> temp = new ArrayList<>();
+            for(T objeto : objetos) {
 
-                for(T objeto : objetos) {
-                    
-                    String valor = (String) instanciaMetodo.invoke(objeto, new Object[] {});
-                    String verif = valor == null ? "0.0" : valor.equals("") ? "0.0" : valor;
-                    
-                    if(Metodos.isNumero(verif)) {
-
-                        temp.add(Double.valueOf(verif));
-
-                    } else {
-
-                        temp.add(Tipo.toEnum(verif).getCriterio());
-                    }
-                }
-
-                Method preferenciaMetodo = this.preferencia.getClass().getMethod(nomeMetodo, new Class[] {});
-                String valor = (String) preferenciaMetodo.invoke(preferencia, new Object[] {});
-                String verif = valor == null ? ">" : valor.equals("") ? ">" : valor;
-
-                valores.put(entry.getKey(), Metodos.calcularMediaMatriz(
-                    Metodos.matrizPreferencia(temp, Metodos.preferenciaParaBoolean(verif))
-                ));
-                
+                Item item = (Item) criarMetodo1.invoke(objeto, new Object[] {});
+                temp.add(Metodos.recuperarValor(item.getValor()));
             }
-        
-        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
-                | InvocationTargetException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+
+            Method criarMetodo2 = this.preferencia.getClass().getMethod(Metodos.retornarNomeMetodo(entry.getKey()), new Class[] {});
+
+            valores.put(entry.getKey(), Metodos.calcularMediaMatriz(
+                Metodos.matrizPreferencia(temp, Metodos.preferenciaParaBoolean((String) criarMetodo2.invoke(preferencia, new Object[] {})))
+            ));
         }
 
         for (Map.Entry<String,double[]> entry : valores.entrySet()) {
@@ -198,11 +169,11 @@ public class AHP<T> {
 
             for(int x = 0; x < valor.length; x++) {
 
-                mediaCriterios[x][posicao] = valor[x];
+                matriz[x][posicao] = valor[x];
             }
         }
 
-        return mediaCriterios;
+        return matriz;
     }
 
     

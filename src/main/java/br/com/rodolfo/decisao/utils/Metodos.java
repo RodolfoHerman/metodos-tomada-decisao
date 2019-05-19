@@ -168,7 +168,7 @@ public class Metodos {
     
     public static boolean preferenciaParaBoolean(String preferencia) {
         
-        return preferencia.equals(">");
+        return preferencia == null || preferencia.equals("") ? true : preferencia.equals(">") ? true : false;
     }
 
     public static boolean verificarArquivos(List<String> arquivos, String[] lista) {

@@ -6,21 +6,20 @@ package br.com.rodolfo.decisao.models;
 public class Casa {
 
     private String descricao;
-    private String preco;
-    private String distancia;
-    private String estado;
-    private String area;
+    private Item preco;
+    private Item distancia;
+    private Item estado;
+    private Item area;
 
     public Casa() {}
 
-    public Casa(String descricao, String preco, String distancia, String estado, String area) {
+    public Casa(String descricao, Item preco, Item distancia, Item estado, Item area) {
         this.descricao = descricao;
         this.preco = preco;
         this.distancia = distancia;
         this.estado = estado;
         this.area = area;
     }
-
 
     public String getDescricao() {
         return this.descricao;
@@ -30,43 +29,43 @@ public class Casa {
         this.descricao = descricao;
     }
 
-    public String getPreco() {
+    public Item getPreco() {
         return this.preco;
     }
 
-    public void setPreco(String preco) {
+    public void setPreco(Item preco) {
         this.preco = preco;
     }
 
-    public String getDistancia() {
+    public Item getDistancia() {
         return this.distancia;
     }
 
-    public void setDistancia(String distancia) {
+    public void setDistancia(Item distancia) {
         this.distancia = distancia;
     }
 
-    public String getEstado() {
+    public Item getEstado() {
         return this.estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Item estado) {
         this.estado = estado;
     }
 
-    public String getArea() {
+    public Item getArea() {
         return this.area;
     }
 
-    public void setArea(String area) {
+    public void setArea(Item area) {
         this.area = area;
     }
 
-    
+
     public String imprimirCampos() {
         return "{" +
             " descricao='" + getDescricao() + "'" +
-            " preco='" + getPreco() + "'" +
+            ", preco='" + getPreco() + "'" +
             ", distancia='" + getDistancia() + "'" +
             ", estado='" + getEstado() + "'" +
             ", area='" + getArea() + "'" +
