@@ -12,6 +12,8 @@ import java.util.ResourceBundle;
 
 import br.com.rodolfo.decisao.StartApp;
 import br.com.rodolfo.decisao.algorithms.AHP;
+import br.com.rodolfo.decisao.algorithms.Algoritmos;
+import br.com.rodolfo.decisao.algorithms.SMART;
 import br.com.rodolfo.decisao.config.Configuracoes;
 import br.com.rodolfo.decisao.models.Carro;
 import br.com.rodolfo.decisao.models.Casa;
@@ -79,7 +81,8 @@ public class TelaController implements Initializable {
             configuracoes.arquivoPreferencias = properties.getProperty("arquivo.preferencias");
 
         } catch (Exception e) {
-            // TODO: handle exception
+            
+            textArea.setText(e.getMessage());
         }
 
         metodos.getToggles().forEach(node -> {
@@ -111,12 +114,12 @@ public class TelaController implements Initializable {
 
                 if (radioProblema.getText().equals("Casa")) {
 
-                    AHP<Casa> ahp = new AHP<>(casas, casasCriteriios, preferencia);
+                    Algoritmos<Casa> ahp = new AHP<>(casas, casasCriteriios, preferencia);
                     textArea.setText(ahp.executar());
 
                 } else {
 
-                    AHP<Carro> ahp = new AHP<>(carros, carrosCriterios, preferencia);
+                    Algoritmos<Carro> ahp = new AHP<>(carros, carrosCriterios, preferencia);
                     textArea.setText(ahp.executar());
                 }
 
@@ -124,8 +127,13 @@ public class TelaController implements Initializable {
 
                 if (radioProblema.getText().equals("Casa")) {
 
+                    Algoritmos<Casa> smart = new SMART<>(casas, casasCriteriios, preferencia);
+                    textArea.setText(smart.executar());
+
                 } else {
 
+                    Algoritmos<Carro> smart = new SMART<>(carros, carrosCriterios, preferencia);
+                    textArea.setText(smart.executar());
                 }
 
             }
@@ -209,8 +217,8 @@ public class TelaController implements Initializable {
                     .buscarPreferencia(caminho.concat("//").concat(configuracoes.arquivoPreferencias)).get(0);
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            
+            textArea.setText(e.getMessage());
         }
 
     }

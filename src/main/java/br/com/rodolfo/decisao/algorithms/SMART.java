@@ -1,11 +1,9 @@
 package br.com.rodolfo.decisao.algorithms;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -23,46 +21,18 @@ import br.com.rodolfo.decisao.utils.Metodos;
 /**
  * SMART
  */
-public class SMART<T> {
+public class SMART<T> extends Algoritmos<T> {
 
-    private List<T> objetos;
-    private List<Criterio> criterios;
-    private Preferencia preferencia;
-    private Class<?> classe;
-    private final Map<String, Integer> posicaoAtributos = new HashMap<>();
     private final Map<String, Set<String>> subAtributos = new HashMap<>();
     private final Map<String, Double> pesosItems = new HashMap<>();
 
     public SMART(List<T> objetos, List<Criterio> criterios, Preferencia preferencia) {
 
-        this.objetos = objetos;
-        this.criterios = criterios;
-        this.preferencia = preferencia;
-        this.classe = objetos.get(0).getClass();
-
-        criarMapasAtributos();
+        super(objetos, criterios, preferencia);
     }
 
-    public String executar() {
 
-        return null;
-    }
-
-    private void criarMapasAtributos() {
-
-        int posicao = 0;
-
-        List<String> atributos = Arrays.asList(this.classe.getDeclaredFields()).stream()
-                .filter(field -> !field.getName().equals("descricao")).sorted(Comparator.comparing(Field::getName))
-                .map(Field::getName).collect(Collectors.toList());
-
-        for (String atributo : atributos) {
-
-            this.posicaoAtributos.put(atributo, posicao++);
-        }
-    }
-
-    public double[][] calcularMatrizInterpolacao() throws NoSuchMethodException, SecurityException, IllegalAccessException,
+    protected double[][] calcularMatriz() throws NoSuchMethodException, SecurityException, IllegalAccessException,
             IllegalArgumentException, InvocationTargetException {
 
         Map<String,List<Double>> valoresAtributos = recuperarValoresAtributos();
@@ -156,7 +126,7 @@ public class SMART<T> {
         return calc == 0 ? 1.0 : calc;
     }
 
-    public Map<String,List<Double>> recuperarValoresAtributos() throws NoSuchMethodException, SecurityException, IllegalAccessException,
+    private Map<String,List<Double>> recuperarValoresAtributos() throws NoSuchMethodException, SecurityException, IllegalAccessException,
             IllegalArgumentException, InvocationTargetException {
         
         Map<String,List<Double>> retorno = new HashMap<>();
@@ -197,7 +167,7 @@ public class SMART<T> {
         return retorno;
     }
 
-    public Map<String,List<Double>> criarListasMinMax() throws NoSuchMethodException, SecurityException, IllegalAccessException,
+    private Map<String,List<Double>> criarListasMinMax() throws NoSuchMethodException, SecurityException, IllegalAccessException,
             IllegalArgumentException, InvocationTargetException {
 
         // List<List<Double>> valores = new ArrayList<>();
@@ -228,7 +198,7 @@ public class SMART<T> {
         return valores;
     }
 
-    public void inserirValorMap(Map<String,List<Double>> mapa, String atributo, String valor) {
+    private void inserirValorMap(Map<String,List<Double>> mapa, String atributo, String valor) {
 
         List<Double> lista = mapa.get(atributo);
         
@@ -270,22 +240,4 @@ public class SMART<T> {
             }
         }
     }
-
-    public int recuperarNumeroColunas() throws NoSuchMethodException, SecurityException, IllegalAccessException,
-            IllegalArgumentException, InvocationTargetException {
-
-        Object objeto = objetos.get(0);
-        int colunas   = 0;
-
-        for(Map.Entry<String,Integer> entry : posicaoAtributos.entrySet()) {
-
-            Method metodo = this.classe.getMethod(Metodos.retornarNomeMetodo(entry.getKey()), new Class[] {});
-            Item item     = (Item) metodo.invoke(objeto, new Object[] {});
-
-            colunas += (item.getSubitens() == null ? 1 : item.getSubitens().size());
-        }
-
-        return colunas;
-    }
-
 }
