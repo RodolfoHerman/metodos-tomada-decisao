@@ -121,11 +121,40 @@ public abstract class Algoritmos<T> {
             // .sorted(Comparator.comparing(InstanciaDTO::getValor))
             .sorted(Comparator.reverseOrder())
             .findFirst()
-            .ifPresent(obj -> imprimir.append("A melhor escolha é : '")
+            .ifPresent(obj -> imprimir.append("#####################################################")
+                                       .append(System.lineSeparator())
+                                      .append("#\tA melhor escolha é : '")
                                       .append(Metodos.formatarPalavra(obj.descricao))
                                       .append("' com valor de : '")
                                       .append(String.format("%.4f", obj.valor))
-                                      .append("'"));
+                                      .append("'")
+                                      .append("\t\t#")
+                                      .append(System.lineSeparator())
+                                      .append("#####################################################"));
+                                
+        imprimir.append(System.lineSeparator()).append(System.lineSeparator()).append(System.lineSeparator())
+                .append("*** Legendas ***").append(System.lineSeparator()).append(System.lineSeparator());
+
+        dto.stream()
+           .sorted(Comparator.comparing(InstanciaDTO::getDescricao))
+           .forEach(obj -> imprimir.append(Metodos.formatarPalavra(obj.descricao))
+                        .append("\t\t")
+                        .append(" -> ")
+                        .append("\t")
+                        .append(obj.descricao)
+                        .append(System.lineSeparator()));
+
+        imprimir.append(System.lineSeparator()).append(System.lineSeparator());
+
+        for (Map.Entry<String,Integer> entry : posicaoAtributos.entrySet()) {
+
+            imprimir.append(Metodos.formatarPalavra(entry.getKey()))
+                    .append("\t\t")
+                    .append(" -> ")
+                    .append("\t")
+                    .append(entry.getKey())
+                    .append(System.lineSeparator());
+        }
 
         return imprimir.toString();
     }

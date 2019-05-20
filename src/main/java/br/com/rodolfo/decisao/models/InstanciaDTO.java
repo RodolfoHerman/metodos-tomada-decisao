@@ -19,6 +19,11 @@ public class InstanciaDTO implements Comparable<InstanciaDTO>{
 
         this.descricao = descricao;
     }
+
+    public String getDescricao() {
+        
+        return descricao;
+    }
     
     public InstanciaDTO(String descricao, double valor) {
         this.descricao = descricao;
