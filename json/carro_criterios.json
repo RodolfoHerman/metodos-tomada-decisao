@@ -10,5 +10,17 @@
         "criterio": ">",
         "preferencia2": "engenharia",
         "nivel": "5"
+    },
+    {
+        "preferencia1": "extras",
+        "criterio": ">",
+        "preferencia2": "custo",
+        "nivel": "3"
+    },
+    {
+        "preferencia1": "custo",
+        "criterio": ">",
+        "preferencia2": "engenharia",
+        "nivel": "7"
     }
 ]

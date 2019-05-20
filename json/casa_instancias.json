@@ -39,7 +39,7 @@
                 },
                 {
                     "descricao": "cozinha",
-                    "valor": "pequeno",
+                    "valor": "muito pequeno",
                     "peso": "10"
                 }
             ]
@@ -85,7 +85,7 @@
                 },
                 {
                     "descricao": "cozinha",
-                    "valor": "grande",
+                    "valor": "muito grande",
                     "peso": ""
                 }
             ]

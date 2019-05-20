@@ -56,7 +56,7 @@
         },
         {
           "descricao": "bagageiro",
-          "valor": "ruim",
+          "valor": "bom",
           "peso": "15"
         }
       ]
@@ -119,7 +119,7 @@
         },
         {
           "descricao": "versatil",
-          "valor": "bom",
+          "valor": "otimo",
           "peso": ""
         }
       ]
@@ -145,11 +145,11 @@
       ]
     },
     "extras": {
-      "valor": "otimo",
+      "valor": "excelente",
       "subitens": [
         {
           "descricao": "conforto",
-          "valor": "otimo",
+          "valor": "excelente",
           "peso": ""
         },
         {
@@ -159,7 +159,7 @@
         },
         {
           "descricao": "estilo",
-          "valor": "bom",
+          "valor": "otimo",
           "peso": ""
         }
       ]
@@ -188,7 +188,7 @@
       ]
     },
     "engenharia": {
-      "valor": "ruim",
+      "valor": "pessimo",
       "subitens": [
         {
           "descricao": "consumo",
@@ -208,7 +208,7 @@
       ]
     },
     "espaco": {
-      "valor": "ruim",
+      "valor": "pessimo",
       "subitens": [
         {
           "descricao": "passageiros",
@@ -228,11 +228,11 @@
       ]
     },
     "extras": {
-      "valor": "ruim",
+      "valor": "pessimo",
       "subitens": [
         {
           "descricao": "conforto",
-          "valor": "ruim",
+          "valor": "pessimo",
           "peso": ""
         },
         {
@@ -260,7 +260,7 @@
         },
         {
           "descricao": "manutencao",
-          "valor": "ruim",
+          "valor": "pessimo",
           "peso": ""
         },
         {
@@ -271,27 +271,27 @@
       ]
     },
     "engenharia": {
-      "valor": "bom",
+      "valor": "pessimo",
       "subitens": [
         {
           "descricao": "consumo",
-          "valor": "25",
+          "valor": "3",
           "peso": ""
         },
         {
           "descricao": "potencia",
-          "valor": "230",
+          "valor": "354",
           "peso": ""
         },
         {
           "descricao": "versatil",
-          "valor": "ruim",
+          "valor": "pessimo",
           "peso": ""
         }
       ]
     },
     "espaco": {
-      "valor": "otimo",
+      "valor": "excelente",
       "subitens": [
         {
           "descricao": "passageiros",
@@ -300,12 +300,12 @@
         },
         {
           "descricao": "espaco",
-          "valor": "otimo",
+          "valor": "excelente",
           "peso": ""
         },
         {
           "descricao": "bagageiro",
-          "valor": "otimo",
+          "valor": "excelente",
           "peso": ""
         }
       ]
@@ -325,7 +325,7 @@
         },
         {
           "descricao": "estilo",
-          "valor": "ruim",
+          "valor": "pessimo",
           "peso": ""
         }
       ]
