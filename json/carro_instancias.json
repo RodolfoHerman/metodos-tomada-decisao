@@ -1,0 +1,334 @@
+[
+  {
+    "descricao": "Mini-Van",
+    "custo": {
+      "valor": "120000",
+      "subitens": [
+        {
+          "descricao": "compra",
+          "valor": "120000",
+          "peso": "70"
+        },
+        {
+          "descricao": "manutencao",
+          "valor": "otimo",
+          "peso": "20"
+        },
+        {
+          "descricao": "seguro",
+          "valor": "800",
+          "peso": "10"
+        }
+      ]
+    },
+    "engenharia": {
+      "valor": "ruim",
+      "subitens": [
+        {
+          "descricao": "consumo",
+          "valor": "11",
+          "peso": "60"
+        },
+        {
+          "descricao": "potencia",
+          "valor": "120",
+          "peso": "35"
+        },
+        {
+          "descricao": "versatil",
+          "valor": "ruim",
+          "peso": "5"
+        }
+      ]
+    },
+    "espaco": {
+      "valor": "otimo",
+      "subitens": [
+        {
+          "descricao": "passageiros",
+          "valor": "8",
+          "peso": "45"
+        },
+        {
+          "descricao": "espaco",
+          "valor": "otimo",
+          "peso": "40"
+        },
+        {
+          "descricao": "bagageiro",
+          "valor": "ruim",
+          "peso": "15"
+        }
+      ]
+    },
+    "extras": {
+      "valor": "ruim",
+      "subitens": [
+        {
+          "descricao": "conforto",
+          "valor": "ruim",
+          "peso": "48"
+        },
+        {
+          "descricao": "seguranca",
+          "valor": "bom",
+          "peso": "45"
+        },
+        {
+          "descricao": "estilo",
+          "valor": "ruim",
+          "peso": "7"
+        }
+      ]
+    }
+  },
+  {
+    "descricao": "SUV",
+    "custo": {
+      "valor": "100000",
+      "subitens": [
+        {
+          "descricao": "compra",
+          "valor": "100000",
+          "peso": ""
+        },
+        {
+          "descricao": "manutencao",
+          "valor": "ruim",
+          "peso": ""
+        },
+        {
+          "descricao": "seguro",
+          "valor": "600",
+          "peso": ""
+        }
+      ]
+    },
+    "engenharia": {
+      "valor": "bom",
+      "subitens": [
+        {
+          "descricao": "consumo",
+          "valor": "13",
+          "peso": ""
+        },
+        {
+          "descricao": "potencia",
+          "valor": "180",
+          "peso": ""
+        },
+        {
+          "descricao": "versatil",
+          "valor": "bom",
+          "peso": ""
+        }
+      ]
+    },
+    "espaco": {
+      "valor": "bom",
+      "subitens": [
+        {
+          "descricao": "passageiros",
+          "valor": "5",
+          "peso": ""
+        },
+        {
+          "descricao": "espaco",
+          "valor": "bom",
+          "peso": ""
+        },
+        {
+          "descricao": "bagageiro",
+          "valor": "otimo",
+          "peso": ""
+        }
+      ]
+    },
+    "extras": {
+      "valor": "otimo",
+      "subitens": [
+        {
+          "descricao": "conforto",
+          "valor": "otimo",
+          "peso": ""
+        },
+        {
+          "descricao": "seguranca",
+          "valor": "otimo",
+          "peso": ""
+        },
+        {
+          "descricao": "estilo",
+          "valor": "bom",
+          "peso": ""
+        }
+      ]
+    }
+  },
+  {
+    "descricao": "Fusca",
+    "custo": {
+      "valor": "4500",
+      "subitens": [
+        {
+          "descricao": "compra",
+          "valor": "4500",
+          "peso": ""
+        },
+        {
+          "descricao": "manutencao",
+          "valor": "otima",
+          "peso": ""
+        },
+        {
+          "descricao": "seguro",
+          "valor": "90",
+          "peso": ""
+        }
+      ]
+    },
+    "engenharia": {
+      "valor": "ruim",
+      "subitens": [
+        {
+          "descricao": "consumo",
+          "valor": "9",
+          "peso": ""
+        },
+        {
+          "descricao": "potencia",
+          "valor": "70",
+          "peso": ""
+        },
+        {
+          "descricao": "versatil",
+          "valor": "ruim",
+          "peso": ""
+        }
+      ]
+    },
+    "espaco": {
+      "valor": "ruim",
+      "subitens": [
+        {
+          "descricao": "passageiros",
+          "valor": "5",
+          "peso": ""
+        },
+        {
+          "descricao": "espaco",
+          "valor": "ruim",
+          "peso": ""
+        },
+        {
+          "descricao": "bagageiro",
+          "valor": "ruim",
+          "peso": ""
+        }
+      ]
+    },
+    "extras": {
+      "valor": "ruim",
+      "subitens": [
+        {
+          "descricao": "conforto",
+          "valor": "ruim",
+          "peso": ""
+        },
+        {
+          "descricao": "seguranca",
+          "valor": "ruim",
+          "peso": ""
+        },
+        {
+          "descricao": "estilo",
+          "valor": "ruim",
+          "peso": ""
+        }
+      ]
+    }
+  },
+  {
+    "descricao": "Onibus",
+    "custo": {
+      "valor": "280000",
+      "subitens": [
+        {
+          "descricao": "compra",
+          "valor": "280000",
+          "peso": ""
+        },
+        {
+          "descricao": "manutencao",
+          "valor": "ruim",
+          "peso": ""
+        },
+        {
+          "descricao": "seguro",
+          "valor": "1700",
+          "peso": ""
+        }
+      ]
+    },
+    "engenharia": {
+      "valor": "bom",
+      "subitens": [
+        {
+          "descricao": "consumo",
+          "valor": "25",
+          "peso": ""
+        },
+        {
+          "descricao": "potencia",
+          "valor": "230",
+          "peso": ""
+        },
+        {
+          "descricao": "versatil",
+          "valor": "ruim",
+          "peso": ""
+        }
+      ]
+    },
+    "espaco": {
+      "valor": "otimo",
+      "subitens": [
+        {
+          "descricao": "passageiros",
+          "valor": "40",
+          "peso": ""
+        },
+        {
+          "descricao": "espaco",
+          "valor": "otimo",
+          "peso": ""
+        },
+        {
+          "descricao": "bagageiro",
+          "valor": "otimo",
+          "peso": ""
+        }
+      ]
+    },
+    "extras": {
+      "valor": "otimo",
+      "subitens": [
+        {
+          "descricao": "conforto",
+          "valor": "otimo",
+          "peso": ""
+        },
+        {
+          "descricao": "seguranca",
+          "valor": "otimo",
+          "peso": ""
+        },
+        {
+          "descricao": "estilo",
+          "valor": "ruim",
+          "peso": ""
+        }
+      ]
+    }
+  }
+]

@@ -82,7 +82,7 @@ public class TelaController implements Initializable {
 
         } catch (Exception e) {
             
-            textArea.setText(e.getMessage());
+            textArea.setText("ERRO (contactar o criador do programa) -> " + e.toString());
         }
 
         metodos.getToggles().forEach(node -> {
@@ -140,7 +140,7 @@ public class TelaController implements Initializable {
         } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException e) {
             
-            textArea.setText(e.getMessage());
+            textArea.setText("ERRO (contactar o criador do programa) -> " + e.toString());
         }
     }
 
@@ -223,7 +223,7 @@ public class TelaController implements Initializable {
 
         } catch (IOException e) {
             
-            textArea.setText(e.getMessage());
+            textArea.setText("ERRO (contactar o criador do programa) -> " + e.toString());
         }
 
     }

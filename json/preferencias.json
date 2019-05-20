@@ -1,0 +1,13 @@
+[
+    {
+        "preco": "<",
+        "distancia": "<",
+        "estado": ">",
+        "area": ">",
+        "custo": "<",
+        "engenharia": ">",
+        "espaco": ">",
+        "extras": ">"
+
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "preferencia1": "espaco",
+        "criterio": ">",
+        "preferencia2": "custo",
+        "nivel": "7"
+    },
+    {
+        "preferencia1": "extras",
+        "criterio": ">",
+        "preferencia2": "engenharia",
+        "nivel": "5"
+    }
+]

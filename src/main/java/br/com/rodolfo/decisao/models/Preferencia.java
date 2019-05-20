@@ -9,39 +9,22 @@ public class Preferencia {
     private String distancia;
     private String estado;
     private String area;
-    private String compra;
-    private String manutencao;
-    private String taxa;
-    private String consumo;
-    private String potencia;
-    private String versatil;
-    private String passageiros;
+    private String custo;
+    private String engenharia;
     private String espaco;
-    private String bagageiro;
-    private String conforto;
-    private String seguranca;
-    private String estilo;
+    private String extras;
 
     public Preferencia() {}
 
-
-    public Preferencia(String preco, String distancia, String estado, String area, String compra, String manutencao, String taxa, String consumo, String potencia, String versatil, String passageiros, String espaco, String bagageiro, String conforto, String seguranca, String estilo) {
+    public Preferencia(String preco, String distancia, String estado, String area, String custo, String engenharia, String espaco, String extras) {
         this.preco = preco;
         this.distancia = distancia;
         this.estado = estado;
         this.area = area;
-        this.compra = compra;
-        this.manutencao = manutencao;
-        this.taxa = taxa;
-        this.consumo = consumo;
-        this.potencia = potencia;
-        this.versatil = versatil;
-        this.passageiros = passageiros;
+        this.custo = custo;
+        this.engenharia = engenharia;
         this.espaco = espaco;
-        this.bagageiro = bagageiro;
-        this.conforto = conforto;
-        this.seguranca = seguranca;
-        this.estilo = estilo;
+        this.extras = extras;
     }
 
 
@@ -77,60 +60,20 @@ public class Preferencia {
         this.area = area;
     }
 
-    public String getCompra() {
-        return this.compra;
+    public String getCusto() {
+        return this.custo;
     }
 
-    public void setCompra(String compra) {
-        this.compra = compra;
+    public void setCusto(String custo) {
+        this.custo = custo;
     }
 
-    public String getManutencao() {
-        return this.manutencao;
+    public String getEngenharia() {
+        return this.engenharia;
     }
 
-    public void setManutencao(String manutencao) {
-        this.manutencao = manutencao;
-    }
-
-    public String getTaxa() {
-        return this.taxa;
-    }
-
-    public void setTaxa(String taxa) {
-        this.taxa = taxa;
-    }
-
-    public String getConsumo() {
-        return this.consumo;
-    }
-
-    public void setConsumo(String consumo) {
-        this.consumo = consumo;
-    }
-
-    public String getPotencia() {
-        return this.potencia;
-    }
-
-    public void setPotencia(String potencia) {
-        this.potencia = potencia;
-    }
-
-    public String getVersatil() {
-        return this.versatil;
-    }
-
-    public void setVersatil(String versatil) {
-        this.versatil = versatil;
-    }
-
-    public String getPassageiros() {
-        return this.passageiros;
-    }
-
-    public void setPassageiros(String passageiros) {
-        this.passageiros = passageiros;
+    public void setEngenharia(String engenharia) {
+        this.engenharia = engenharia;
     }
 
     public String getEspaco() {
@@ -141,37 +84,14 @@ public class Preferencia {
         this.espaco = espaco;
     }
 
-    public String getBagageiro() {
-        return this.bagageiro;
+    public String getExtras() {
+        return this.extras;
     }
 
-    public void setBagageiro(String bagageiro) {
-        this.bagageiro = bagageiro;
+    public void setExtras(String extras) {
+        this.extras = extras;
     }
 
-    public String getConforto() {
-        return this.conforto;
-    }
-
-    public void setConforto(String conforto) {
-        this.conforto = conforto;
-    }
-
-    public String getSeguranca() {
-        return this.seguranca;
-    }
-
-    public void setSeguranca(String seguranca) {
-        this.seguranca = seguranca;
-    }
-
-    public String getEstilo() {
-        return this.estilo;
-    }
-
-    public void setEstilo(String estilo) {
-        this.estilo = estilo;
-    }
 
     @Override
     public String toString() {
@@ -180,19 +100,12 @@ public class Preferencia {
             ", distancia='" + getDistancia() + "'" +
             ", estado='" + getEstado() + "'" +
             ", area='" + getArea() + "'" +
-            ", compra='" + getCompra() + "'" +
-            ", manutencao='" + getManutencao() + "'" +
-            ", taxa='" + getTaxa() + "'" +
-            ", consumo='" + getConsumo() + "'" +
-            ", potencia='" + getPotencia() + "'" +
-            ", potencia='" + getVersatil() + "'" +
-            ", passageiros='" + getPassageiros() + "'" +
+            ", custo='" + getCusto() + "'" +
+            ", engenharia='" + getEngenharia() + "'" +
             ", espaco='" + getEspaco() + "'" +
-            ", bagageiro='" + getBagageiro() + "'" +
-            ", conforto='" + getConforto() + "'" +
-            ", seguranca='" + getSeguranca() + "'" +
-            ", estilo='" + getEstilo() + "'" +
+            ", extras='" + getExtras() + "'" +
             "}";
     }
+
 
 }
