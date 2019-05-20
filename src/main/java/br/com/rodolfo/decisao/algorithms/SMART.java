@@ -44,6 +44,9 @@ public class SMART<T> extends Algoritmos<T> {
 
             List<Double> valores = valoresAtributos.get(entry.getKey());
 
+            Method metodo = this.preferencia.getClass().getMethod(Metodos.retornarNomeMetodo(entry.getKey()), new Class[] {});
+            boolean pref  = Metodos.preferenciaParaBoolean((String) metodo.invoke(preferencia, new Object[] {}));
+
             if(valores == null) {
                 
                 for(String chave : subAtributos.get(entry.getKey())) {
@@ -51,13 +54,13 @@ public class SMART<T> extends Algoritmos<T> {
                     valores = valoresAtributos.get(chave);
                     List<Double> minMax = listaMinMax.get(chave);
 
-                    valoresAtributos.put(chave, calcularInterpolacao(valores, minMax));
+                    valoresAtributos.put(chave, calcularInterpolacao(valores, minMax, pref));
                 }
                 
             } else {
                 
                 List<Double> minMax = listaMinMax.get(entry.getKey());
-                valoresAtributos.put(entry.getKey(), calcularInterpolacao(valores, minMax));
+                valoresAtributos.put(entry.getKey(), calcularInterpolacao(valores, minMax, pref));
             }
         }
 
@@ -114,16 +117,27 @@ public class SMART<T> extends Algoritmos<T> {
         return matriz;
     }
 
-    private List<Double> calcularInterpolacao(List<Double> valores, List<Double> minMax) {
+    private List<Double> calcularInterpolacao(List<Double> valores, List<Double> minMax, boolean pref) {
 
-        return valores.stream().map(d -> calcularInterpolacao(minMax.get(0), minMax.get(1), d)).collect(Collectors.toList());
+        return valores.stream().map(d -> calcularInterpolacao(minMax.get(0), minMax.get(1), d, pref)).collect(Collectors.toList());
     }
 
-    private double calcularInterpolacao(double menor, double maior, double valor) {
+    private double calcularInterpolacao(double menor, double maior, double valor, boolean pref) {
 
-        double calc = 100.0 * ((valor - menor) / ((maior - menor) == 0 ? 1 : (maior - menor)));
+        double calc = 0.0;
 
-        return calc == 0 ? 1.0 : calc;
+        if(pref) {
+
+            double divisor = (maior - menor) == 0 ? 1.0 : (maior - menor);
+            calc = (valor - menor)/divisor;
+            
+        } else {
+            
+            double divisor = (menor - maior) == 0 ? 1.0 : (menor - maior);
+            calc = (valor - maior)/divisor; 
+        }
+
+        return 100.0 * (calc == 0 ? 1.0 : calc);
     }
 
     private Map<String,List<Double>> recuperarValoresAtributos() throws NoSuchMethodException, SecurityException, IllegalAccessException,

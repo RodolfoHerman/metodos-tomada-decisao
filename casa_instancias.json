@@ -21,7 +21,7 @@
             "subitens": null
         },
         "estado": {
-            "valor": "ruim",
+            "valor": "bom",
             "subitens": null
         },
         "area": {
@@ -67,15 +67,15 @@
             "subitens": null
         },
         "estado": {
-            "valor": "bom",
+            "valor": "ruim",
             "subitens": null
         },
         "area": {
-            "valor": "260",
+            "valor": "270",
             "subitens": [
                 {
                     "descricao": "apartamento",
-                    "valor": "260",
+                    "valor": "270",
                     "peso": ""
                 },
                 {
@@ -103,7 +103,7 @@
                 },
                 {
                     "descricao": "condominio",
-                    "valor": "800",
+                    "valor": "1100",
                     "peso": ""
                 }
             ]

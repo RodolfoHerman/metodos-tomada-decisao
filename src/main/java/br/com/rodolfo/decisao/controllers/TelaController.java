@@ -205,6 +205,11 @@ public class TelaController implements Initializable {
         String caminho = file.getAbsolutePath();
         textArea.clear();
 
+        carros.clear();
+        carrosCriterios.clear();
+        casas.clear();
+        casasCriteriios.clear();
+
         try {
 
             carros.addAll(carroService.buscarInstancias(caminho.concat("//").concat(configuracoes.carroInstancias)));

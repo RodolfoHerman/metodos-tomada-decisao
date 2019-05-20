@@ -2,11 +2,11 @@ package br.com.rodolfo.decisao.models.enums;
 
 public enum Tipo {
 
-    RUIM(1.0, "ruim"),
-    BOM(3.0, "bom"),
+    RUIM(3.0, "ruim"),
+    BOM(5.0, "bom"),
     OTIMO(7.0, "otimo"),
-    PEQUENO(1.0, "pequeno"),
-    MEDIO(3.0, "medio"),
+    PEQUENO(3.0, "pequeno"),
+    MEDIO(5.0, "medio"),
     GRANDE(7.0, "grande");
 
     private Double criterio;
