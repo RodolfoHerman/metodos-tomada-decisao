@@ -4,10 +4,28 @@
         "distancia": "<",
         "estado": ">",
         "area": ">",
+
         "custo": "<",
         "engenharia": ">",
         "espaco": ">",
-        "extras": ">"
+        "extras": ">",
 
+
+        "compra": "<",
+        "condominio": "<",
+        "apartamento": ">",
+        "garagem": ">",
+        "cozinha": ">",
+
+        "manutencao": ">",
+        "seguro": "<",
+        "consumo": ">",
+        "potencia": ">",
+        "versatil": ">",
+        "passageiros": ">",
+        "bagageiro": ">",
+        "conforto": ">",
+        "seguranca": ">",
+        "estilo": ">"
     }
 ]

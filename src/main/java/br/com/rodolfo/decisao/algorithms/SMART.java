@@ -44,12 +44,15 @@ public class SMART<T> extends Algoritmos<T> {
 
             List<Double> valores = valoresAtributos.get(entry.getKey());
 
-            Method metodo = this.preferencia.getClass().getMethod(Metodos.retornarNomeMetodo(entry.getKey()), new Class[] {});
-            boolean pref  = Metodos.preferenciaParaBoolean((String) metodo.invoke(preferencia, new Object[] {}));
+            
+            
 
             if(valores == null) {
                 
                 for(String chave : subAtributos.get(entry.getKey())) {
+
+                    Method metodo = this.preferencia.getClass().getMethod(Metodos.retornarNomeMetodo(chave), new Class[] {});
+                    boolean pref  = Metodos.preferenciaParaBoolean((String) metodo.invoke(preferencia, new Object[] {}));
 
                     valores = valoresAtributos.get(chave);
                     List<Double> minMax = listaMinMax.get(chave);
@@ -59,6 +62,9 @@ public class SMART<T> extends Algoritmos<T> {
                 
             } else {
                 
+                Method metodo = this.preferencia.getClass().getMethod(Metodos.retornarNomeMetodo(entry.getKey()), new Class[] {});
+                boolean pref  = Metodos.preferenciaParaBoolean((String) metodo.invoke(preferencia, new Object[] {}));
+
                 List<Double> minMax = listaMinMax.get(entry.getKey());
                 valoresAtributos.put(entry.getKey(), calcularInterpolacao(valores, minMax, pref));
             }
