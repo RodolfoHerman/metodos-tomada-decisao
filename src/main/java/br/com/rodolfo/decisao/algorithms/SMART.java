@@ -31,21 +31,17 @@ public class SMART<T> extends Algoritmos<T> {
         super(objetos, criterios, preferencia);
     }
 
-
     protected double[][] calcularMatriz() throws NoSuchMethodException, SecurityException, IllegalAccessException,
             IllegalArgumentException, InvocationTargetException {
 
-        Map<String,List<Double>> valoresAtributos = recuperarValoresAtributos();
-        Map<String,List<Double>> listaMinMax      = criarListasMinMax();
+        Map<String, List<Double>> valoresAtributos = recuperarValoresAtributos();
+        Map<String, List<Double>> listaMinMax = criarListasMinMax();
 
         double[][] matriz = new double[objetos.size()][posicaoAtributos.size()];
-
+        
         for(Map.Entry<String,Integer> entry : posicaoAtributos.entrySet()) {
 
             List<Double> valores = valoresAtributos.get(entry.getKey());
-
-            
-            
 
             if(valores == null) {
                 
@@ -55,9 +51,8 @@ public class SMART<T> extends Algoritmos<T> {
                     boolean pref  = Metodos.preferenciaParaBoolean((String) metodo.invoke(preferencia, new Object[] {}));
 
                     valores = valoresAtributos.get(chave);
-                    List<Double> minMax = listaMinMax.get(chave);
 
-                    valoresAtributos.put(chave, calcularInterpolacao(valores, minMax, pref));
+                    valoresAtributos.put(chave, calcularInterpolacao(valores, listaMinMax.get(chave), pref));
                 }
                 
             } else {
@@ -65,8 +60,7 @@ public class SMART<T> extends Algoritmos<T> {
                 Method metodo = this.preferencia.getClass().getMethod(Metodos.retornarNomeMetodo(entry.getKey()), new Class[] {});
                 boolean pref  = Metodos.preferenciaParaBoolean((String) metodo.invoke(preferencia, new Object[] {}));
 
-                List<Double> minMax = listaMinMax.get(entry.getKey());
-                valoresAtributos.put(entry.getKey(), calcularInterpolacao(valores, minMax, pref));
+                valoresAtributos.put(entry.getKey(), calcularInterpolacao(valores, listaMinMax.get(entry.getKey()), pref));
             }
         }
 

@@ -76,7 +76,7 @@ public class AHP<T> extends Algoritmos<T> {
 
                 if(x != y) {
                     
-                    double criterio = valorPadronizado(temp1, temp2, media);
+                    double criterio = valorLimiar(temp1, temp2, media);
 
                     if(preferencia) {
 
@@ -95,17 +95,20 @@ public class AHP<T> extends Algoritmos<T> {
         return matriz;
     }
 
-    private double valorPadronizado(double valor1, double valor2, double media) {
+    private double valorLimiar(double valor1, double valor2, double media) {
 
-        double padrao = Math.abs((valor1 - valor2)/media);
+        double limiar = Math.abs((valor1 - valor2)/media);
 
-        if(padrao <= 0.4)
+        if(limiar == 0.0)
+            return 1.0;
+
+        if(limiar <= 0.4)
             return 3.0;
         
-        if(padrao <= 0.8)
+        if(limiar <= 0.8)
             return 5.0;
 
-        if(padrao <= 1.1)
+        if(limiar <= 1.1)
             return 7.0;
 
         return 9.0;
