@@ -137,7 +137,7 @@ public class SMART<T> extends Algoritmos<T> {
             calc = (valor - maior)/divisor; 
         }
 
-        return 100.0 * (calc == 0 ? 1.0 : calc);
+        return 100.0 * (calc == 0 ? 0.01 : calc);
     }
 
     private Map<String,List<Double>> recuperarValoresAtributos() throws NoSuchMethodException, SecurityException, IllegalAccessException,
@@ -187,7 +187,7 @@ public class SMART<T> extends Algoritmos<T> {
         // List<List<Double>> valores = new ArrayList<>();
         Map<String,List<Double>> valores = new HashMap<>();
         Map<String,List<Double>> temp    = recuperarValoresAtributos();
-
+        
         for(Map.Entry<String,List<Double>> entry : temp.entrySet()) {
 
             double minimo = entry.getValue().stream()
@@ -249,7 +249,7 @@ public class SMART<T> extends Algoritmos<T> {
 
                     double valor = Metodos.recuperarValor(s.getPeso()) == 0 ? 1.0 : Metodos.recuperarValor(s.getPeso());
                     pesosItems.put(s.getDescricao(), valor);
-                    
+
                 }
             }
         }
