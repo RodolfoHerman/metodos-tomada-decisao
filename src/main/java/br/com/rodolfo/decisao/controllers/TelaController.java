@@ -23,6 +23,7 @@ import br.com.rodolfo.decisao.services.CarroService;
 import br.com.rodolfo.decisao.services.CasaService;
 import br.com.rodolfo.decisao.services.CriterioService;
 import br.com.rodolfo.decisao.services.PreferenciaService;
+import br.com.rodolfo.decisao.test.Teste;
 import br.com.rodolfo.decisao.utils.Metodos;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -98,6 +99,8 @@ public class TelaController implements Initializable {
         });
 
         btnAnalisar.setDisable(true);
+
+        (new Teste()).testandoSobol();
     }
 
     @FXML
