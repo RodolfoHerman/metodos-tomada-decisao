@@ -63,7 +63,7 @@ public class AHP<T> extends Algoritmos<T> {
 
     private double[][] matrizPreferencia(List<Double> valores, boolean preferencia) {
 
-        double[][] matriz = criarMatrizNeutra(valores.size());
+        double[][] matriz = criarMatrizNeutra(valores.size(),valores.size());
         double media      = calcularMedia(valores);
 
         for(int x = 0; x < valores.size(); x++) {

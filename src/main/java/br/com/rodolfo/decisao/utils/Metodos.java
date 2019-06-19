@@ -117,4 +117,37 @@ public class Metodos {
         }
 
     }
+
+    public static double[][] matrizTransposta(double[][] matrizPayoff) {
+        
+        int linhas  = matrizPayoff.length;
+        int colunas = matrizPayoff[0].length;
+
+        double[][] transposta = new double[colunas][linhas];
+
+        for(int x = 0; x < linhas; x++) {
+            for(int y = 0; y < colunas; y++) {
+
+                transposta[y][x] = matrizPayoff[x][y];
+            }
+        }
+
+        return transposta;
+    }
+
+    public static String formatarNumero(int numero) {
+        
+        String resposta = "" + numero;
+
+        if(numero < 10) {
+            
+            resposta = "00" + numero;
+
+        } else if(numero < 100) {
+
+            resposta = "0" + numero;
+        }
+
+        return resposta;
+    }
 }

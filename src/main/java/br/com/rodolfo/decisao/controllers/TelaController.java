@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import br.com.rodolfo.decisao.StartApp;
 import br.com.rodolfo.decisao.algorithms.AHP;
 import br.com.rodolfo.decisao.algorithms.Algoritmos;
+import br.com.rodolfo.decisao.algorithms.JOEL;
 import br.com.rodolfo.decisao.algorithms.SMART;
 import br.com.rodolfo.decisao.config.Configuracoes;
 import br.com.rodolfo.decisao.models.Carro;
@@ -23,7 +24,6 @@ import br.com.rodolfo.decisao.services.CarroService;
 import br.com.rodolfo.decisao.services.CasaService;
 import br.com.rodolfo.decisao.services.CriterioService;
 import br.com.rodolfo.decisao.services.PreferenciaService;
-import br.com.rodolfo.decisao.test.Teste;
 import br.com.rodolfo.decisao.utils.Metodos;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -100,7 +100,6 @@ public class TelaController implements Initializable {
 
         btnAnalisar.setDisable(true);
 
-        (new Teste()).testandoSobol();
     }
 
     @FXML
@@ -126,7 +125,7 @@ public class TelaController implements Initializable {
                     textArea.setText(ahp.executar());
                 }
 
-            } else {
+            } else if(radioMetodos.getText().equals("SMART")) {
 
                 if (radioProblema.getText().equals("Casa")) {
 
@@ -137,6 +136,19 @@ public class TelaController implements Initializable {
 
                     Algoritmos<Carro> smart = new SMART<>(carros, carrosCriterios, preferencia);
                     textArea.setText(smart.executar());
+                }
+
+            } else {
+
+                if (radioProblema.getText().equals("Casa")) {
+
+                    Algoritmos<Casa> joel = new JOEL<>(casas, casasCriteriios, preferencia, 700, 0.15);
+                    textArea.setText(joel.executar());
+
+                } else {
+
+                    Algoritmos<Carro> joel = new JOEL<>(carros, carrosCriterios, preferencia, 700, 0.15);
+                    textArea.setText(joel.executar());
                 }
 
             }

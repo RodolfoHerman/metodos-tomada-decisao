@@ -161,7 +161,7 @@ public abstract class Algoritmos<T> {
 
     private double[] criarVetorCriterios() {
 
-        double[][] matrizCriterios = criarMatrizNeutra(posicaoAtributos.size());
+        double[][] matrizCriterios = criarMatrizNeutra(posicaoAtributos.size(), posicaoAtributos.size());
 
         for(Criterio criterio : criterios) {
 
@@ -183,12 +183,12 @@ public abstract class Algoritmos<T> {
         return calcularMediaMatriz(matrizCriterios);
     }
 
-    protected double[][] criarMatrizNeutra(int tamanho) {
+    protected double[][] criarMatrizNeutra(int linhas, int colunas) {
         
-        double[][] matriz = new double[tamanho][tamanho];
+        double[][] matriz = new double[linhas][colunas];
 
-        for(int x = 0; x < tamanho; x++) {
-            for(int y = 0; y < tamanho; y++) {
+        for(int x = 0; x < linhas; x++) {
+            for(int y = 0; y < colunas; y++) {
 
                 matriz[x][y] = 1.0;
             }

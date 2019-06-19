@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.DoubleSummaryStatistics;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -23,8 +24,8 @@ import br.com.rodolfo.decisao.utils.Metodos;
  */
 public class SMART<T> extends Algoritmos<T> {
 
-    private final Map<String, Set<String>> subAtributos = new HashMap<>();
-    private final Map<String, Double> pesosItems = new HashMap<>();
+    protected final Map<String, Set<String>> subAtributos = new HashMap<>();
+    protected final Map<String, Double> pesosItems = new HashMap<>();
 
     public SMART(List<T> objetos, List<Criterio> criterios, Preferencia preferencia) {
 
@@ -140,7 +141,7 @@ public class SMART<T> extends Algoritmos<T> {
         return 100.0 * (calc == 0 ? 0.01 : calc);
     }
 
-    private Map<String,List<Double>> recuperarValoresAtributos() throws NoSuchMethodException, SecurityException, IllegalAccessException,
+    protected Map<String,List<Double>> recuperarValoresAtributos() throws NoSuchMethodException, SecurityException, IllegalAccessException,
             IllegalArgumentException, InvocationTargetException {
         
         Map<String,List<Double>> retorno = new HashMap<>();
@@ -184,27 +185,29 @@ public class SMART<T> extends Algoritmos<T> {
     private Map<String,List<Double>> criarListasMinMax() throws NoSuchMethodException, SecurityException, IllegalAccessException,
             IllegalArgumentException, InvocationTargetException {
 
-        // List<List<Double>> valores = new ArrayList<>();
         Map<String,List<Double>> valores = new HashMap<>();
         Map<String,List<Double>> temp    = recuperarValoresAtributos();
         
         for(Map.Entry<String,List<Double>> entry : temp.entrySet()) {
-
-            double minimo = entry.getValue().stream()
-                .mapToDouble(d -> d)
-                .min().getAsDouble();
             
-            double maximo = entry.getValue().stream()
-                .mapToDouble(d -> d)
-                .max().getAsDouble();
-
-            double media = entry.getValue().stream()
-                .mapToDouble(d -> d)
-                .average().getAsDouble();
-
-            minimo = (minimo/2) < 1 ? entry.getKey().equals("distancia") ? (minimo/2) : 1.0 : Math.rint(minimo/2);
+            DoubleSummaryStatistics sumario = entry.getValue().stream()
+                .collect(Collectors.summarizingDouble(Double::doubleValue));
             
-            maximo = maximo + media;
+            
+            // double minimo = entry.getValue().stream()
+            //     .mapToDouble(d -> d)
+            //     .min().getAsDouble();
+            
+            // double maximo = entry.getValue().stream()
+            //     .mapToDouble(d -> d)
+            //     .max().getAsDouble();
+
+            // double media = entry.getValue().stream()
+            //     .mapToDouble(d -> d)
+            //     .average().getAsDouble();
+
+            double minimo = (sumario.getMin()/2) < 1 ? entry.getKey().equals("distancia") ? (sumario.getMin()/2) : 1.0 : Math.rint(sumario.getMin()/2);
+            double maximo = sumario.getMax() + sumario.getAverage();
 
             valores.put(entry.getKey(), new ArrayList<>(Arrays.asList(minimo, maximo)));
         }
