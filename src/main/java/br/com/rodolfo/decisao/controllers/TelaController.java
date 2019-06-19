@@ -31,6 +31,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.DirectoryChooser;
@@ -50,7 +51,16 @@ public class TelaController implements Initializable {
     private TextArea textArea;
 
     @FXML
+    private TextField textFieldAmostras;
+
+    @FXML
+    private TextField textFieldIncerteza;
+
+    @FXML
     private Button btnAnalisar;
+
+    @FXML
+    private RadioButton joelRadio;
 
     // Variáveis locais
     private DirectoryChooser directoryChooser;
@@ -99,7 +109,8 @@ public class TelaController implements Initializable {
         });
 
         btnAnalisar.setDisable(true);
-
+        textFieldAmostras.disableProperty().bind(joelRadio.selectedProperty().not());
+        textFieldIncerteza.disableProperty().bind(joelRadio.selectedProperty().not());
     }
 
     @FXML
@@ -140,14 +151,23 @@ public class TelaController implements Initializable {
 
             } else {
 
+                if(!(Metodos.isNumero(textFieldAmostras.getText()) && Metodos.isNumero(textFieldIncerteza.getText()))) {
+
+                    textArea.setText("Somente números podem ser inseridos nos campos 'Nº Amostras' e 'Incerteza (%)'");
+                    return;
+                }
+
+                int numAmostras  = Integer.valueOf(textFieldAmostras.getText());
+                double incerteza = Double.valueOf(textFieldIncerteza.getText())/100.0;
+
                 if (radioProblema.getText().equals("Casa")) {
 
-                    Algoritmos<Casa> joel = new JOEL<>(casas, casasCriteriios, preferencia, 700, 0.15);
+                    Algoritmos<Casa> joel = new JOEL<>(casas, casasCriteriios, preferencia, numAmostras, incerteza);
                     textArea.setText(joel.executar());
 
                 } else {
 
-                    Algoritmos<Carro> joel = new JOEL<>(carros, carrosCriterios, preferencia, 700, 0.15);
+                    Algoritmos<Carro> joel = new JOEL<>(carros, carrosCriterios, preferencia, numAmostras, incerteza);
                     textArea.setText(joel.executar());
                 }
 
