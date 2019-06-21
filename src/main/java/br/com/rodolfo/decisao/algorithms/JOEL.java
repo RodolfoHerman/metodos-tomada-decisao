@@ -134,8 +134,8 @@ public class JOEL<T> extends SMART<T> {
 
                     valores = valoresAtributos.get(chave);
                     
-                    // cenarios.put(chave, calcular_mu_ap(calcularInterpolacao(valores, sequencia, chave), pref));
-                    cenarios.put(chave, calcular_mu_ap(calcularInterpolacao(valores, sequencia), pref));
+                    // cenarios.put(chave, calcular_mu_ap(criarMatrizPayoff(valores, sequencia, chave), pref));
+                    cenarios.put(chave, calcular_mu_ap(criarMatrizPayoff(valores, sequencia), pref));
                 }
                 
             } else {
@@ -143,8 +143,8 @@ public class JOEL<T> extends SMART<T> {
                 Method metodo = this.preferencia.getClass().getMethod(Metodos.retornarNomeMetodo(entry.getKey()), new Class[] {});
                 boolean pref  = Metodos.preferenciaParaBoolean((String) metodo.invoke(preferencia, new Object[] {}));
 
-                // cenarios.put(entry.getKey(), calcular_mu_ap(calcularInterpolacao(valores, sequencia, entry.getKey()), pref));
-                cenarios.put(entry.getKey(), calcular_mu_ap(calcularInterpolacao(valores, sequencia), pref));
+                // cenarios.put(entry.getKey(), calcular_mu_ap(criarMatrizPayoff(valores, sequencia, entry.getKey()), pref));
+                cenarios.put(entry.getKey(), calcular_mu_ap(criarMatrizPayoff(valores, sequencia), pref));
             }
         }
 
@@ -223,8 +223,8 @@ public class JOEL<T> extends SMART<T> {
     }
 
 
-    // protected Double[][] calcularInterpolacao(List<Double> valores, double[][] sequencia, String chave) {
-    protected Double[][] calcularInterpolacao(List<Double> valores, double[][] sequencia) {
+    // protected Double[][] criarMatrizPayoff(List<Double> valores, double[][] sequencia, String chave) {
+    protected Double[][] criarMatrizPayoff(List<Double> valores, double[][] sequencia) {
 
         Double[][] resposta = new Double[sequencia.length][sequencia[0].length];
         // double peso  = pesosItems.get(chave) == 1.0 ? 1.0 : (pesosItems.get(chave)/100.0);
