@@ -83,23 +83,23 @@
     }
   },
   {
-    "descricao": "SUV",
+    "descricao": "HR-V Honda",
     "custo": {
-      "valor": "100000",
+      "valor": "94400",
       "subitens": [
         {
           "descricao": "compra",
-          "valor": "100000",
+          "valor": "94400",
           "peso": ""
         },
         {
           "descricao": "manutencao",
-          "valor": "ruim",
+          "valor": "bom",
           "peso": ""
         },
         {
           "descricao": "seguro",
-          "valor": "600",
+          "valor": "899",
           "peso": ""
         }
       ]
@@ -109,12 +109,12 @@
       "subitens": [
         {
           "descricao": "consumo",
-          "valor": "13",
+          "valor": "10",
           "peso": ""
         },
         {
           "descricao": "potencia",
-          "valor": "180",
+          "valor": "139",
           "peso": ""
         },
         {
@@ -134,7 +134,7 @@
         },
         {
           "descricao": "espaco",
-          "valor": "bom",
+          "valor": "otimo",
           "peso": ""
         },
         {
@@ -249,63 +249,311 @@
     }
   },
   {
-    "descricao": "Onibus",
+    "descricao": "Etios",
     "custo": {
-      "valor": "280000",
+      "valor": "51390",
       "subitens": [
         {
           "descricao": "compra",
-          "valor": "280000",
+          "valor": "51390",
           "peso": ""
         },
         {
           "descricao": "manutencao",
-          "valor": "pessimo",
+          "valor": "bom",
           "peso": ""
         },
         {
           "descricao": "seguro",
-          "valor": "1700",
+          "valor": "630",
           "peso": ""
         }
       ]
     },
     "engenharia": {
-      "valor": "pessimo",
+      "valor": "bom",
       "subitens": [
         {
           "descricao": "consumo",
-          "valor": "3",
+          "valor": "13",
           "peso": ""
         },
         {
           "descricao": "potencia",
-          "valor": "354",
+          "valor": "98",
           "peso": ""
         },
         {
           "descricao": "versatil",
-          "valor": "pessimo",
+          "valor": "ruim",
           "peso": ""
         }
       ]
     },
     "espaco": {
-      "valor": "excelente",
+      "valor": "ruim",
       "subitens": [
         {
           "descricao": "passageiros",
-          "valor": "40",
+          "valor": "5",
           "peso": ""
         },
         {
           "descricao": "espaco",
-          "valor": "excelente",
+          "valor": "bom",
+          "peso": ""
+        },
+        {
+          "descricao": "bagageiro",
+          "valor": "ruim",
+          "peso": ""
+        }
+      ]
+    },
+    "extras": {
+      "valor": "bom",
+      "subitens": [
+        {
+          "descricao": "conforto",
+          "valor": "ruim",
+          "peso": ""
+        },
+        {
+          "descricao": "seguranca",
+          "valor": "bom",
+          "peso": ""
+        },
+        {
+          "descricao": "estilo",
+          "valor": "bom",
+          "peso": ""
+        }
+      ]
+    }
+  },
+  {
+    "descricao": "EcoSport",
+    "custo": {
+      "valor": "69900",
+      "subitens": [
+        {
+          "descricao": "compra",
+          "valor": "69900",
+          "peso": ""
+        },
+        {
+          "descricao": "manutencao",
+          "valor": "bom",
+          "peso": ""
+        },
+        {
+          "descricao": "seguro",
+          "valor": "1150",
+          "peso": ""
+        }
+      ]
+    },
+    "engenharia": {
+      "valor": "bom",
+      "subitens": [
+        {
+          "descricao": "consumo",
+          "valor": "13",
+          "peso": ""
+        },
+        {
+          "descricao": "potencia",
+          "valor": "137",
+          "peso": ""
+        },
+        {
+          "descricao": "versatil",
+          "valor": "bom",
+          "peso": ""
+        }
+      ]
+    },
+    "espaco": {
+      "valor": "otimo",
+      "subitens": [
+        {
+          "descricao": "passageiros",
+          "valor": "5",
+          "peso": ""
+        },
+        {
+          "descricao": "espaco",
+          "valor": "otimo",
           "peso": ""
         },
         {
           "descricao": "bagageiro",
           "valor": "excelente",
+          "peso": ""
+        }
+      ]
+    },
+    "extras": {
+      "valor": "bom",
+      "subitens": [
+        {
+          "descricao": "conforto",
+          "valor": "bom",
+          "peso": ""
+        },
+        {
+          "descricao": "seguranca",
+          "valor": "otimo",
+          "peso": ""
+        },
+        {
+          "descricao": "estilo",
+          "valor": "bom",
+          "peso": ""
+        }
+      ]
+    }
+  }, {
+    "descricao": "Ford Ka Sedan",
+    "custo": {
+      "valor": "50480",
+      "subitens": [
+        {
+          "descricao": "compra",
+          "valor": "50480",
+          "peso": ""
+        },
+        {
+          "descricao": "manutencao",
+          "valor": "otimo",
+          "peso": ""
+        },
+        {
+          "descricao": "seguro",
+          "valor": "750",
+          "peso": ""
+        }
+      ]
+    },
+    "engenharia": {
+      "valor": "bom",
+      "subitens": [
+        {
+          "descricao": "consumo",
+          "valor": "15",
+          "peso": ""
+        },
+        {
+          "descricao": "potencia",
+          "valor": "85",
+          "peso": ""
+        },
+        {
+          "descricao": "versatil",
+          "valor": "bom",
+          "peso": ""
+        }
+      ]
+    },
+    "espaco": {
+      "valor": "bom",
+      "subitens": [
+        {
+          "descricao": "passageiros",
+          "valor": "5",
+          "peso": ""
+        },
+        {
+          "descricao": "espaco",
+          "valor": "ruim",
+          "peso": ""
+        },
+        {
+          "descricao": "bagageiro",
+          "valor": "bom",
+          "peso": ""
+        }
+      ]
+    },
+    "extras": {
+      "valor": "bom",
+      "subitens": [
+        {
+          "descricao": "conforto",
+          "valor": "bom",
+          "peso": ""
+        },
+        {
+          "descricao": "seguranca",
+          "valor": "bom",
+          "peso": ""
+        },
+        {
+          "descricao": "estilo",
+          "valor": "otimo",
+          "peso": ""
+        }
+      ]
+    }
+  },
+  {
+    "descricao": "Ford Fusion",
+    "custo": {
+      "valor": "149900",
+      "subitens": [
+        {
+          "descricao": "compra",
+          "valor": "149900",
+          "peso": ""
+        },
+        {
+          "descricao": "manutencao",
+          "valor": "otimo",
+          "peso": ""
+        },
+        {
+          "descricao": "seguro",
+          "valor": "1299",
+          "peso": ""
+        }
+      ]
+    },
+    "engenharia": {
+      "valor": "otimo",
+      "subitens": [
+        {
+          "descricao": "consumo",
+          "valor": "11",
+          "peso": ""
+        },
+        {
+          "descricao": "potencia",
+          "valor": "120",
+          "peso": ""
+        },
+        {
+          "descricao": "versatil",
+          "valor": "otimo",
+          "peso": ""
+        }
+      ]
+    },
+    "espaco": {
+      "valor": "otimo",
+      "subitens": [
+        {
+          "descricao": "passageiros",
+          "valor": "5",
+          "peso": ""
+        },
+        {
+          "descricao": "espaco",
+          "valor": "otimo",
+          "peso": ""
+        },
+        {
+          "descricao": "bagageiro",
+          "valor": "otimo",
           "peso": ""
         }
       ]
@@ -325,7 +573,90 @@
         },
         {
           "descricao": "estilo",
-          "valor": "pessimo",
+          "valor": "excelente",
+          "peso": ""
+        }
+      ]
+    }
+  },
+  {
+    "descricao": "Hilux Cabine Dupla",
+    "custo": {
+      "valor": "113790",
+      "subitens": [
+        {
+          "descricao": "compra",
+          "valor": "113790",
+          "peso": ""
+        },
+        {
+          "descricao": "manutencao",
+          "valor": "otimo",
+          "peso": ""
+        },
+        {
+          "descricao": "seguro",
+          "valor": "999",
+          "peso": ""
+        }
+      ]
+    },
+    "engenharia": {
+      "valor": "otimo",
+      "subitens": [
+        {
+          "descricao": "consumo",
+          "valor": "9",
+          "peso": ""
+        },
+        {
+          "descricao": "potencia",
+          "valor": "163",
+          "peso": ""
+        },
+        {
+          "descricao": "versatil",
+          "valor": "otimo",
+          "peso": ""
+        }
+      ]
+    },
+    "espaco": {
+      "valor": "otimo",
+      "subitens": [
+        {
+          "descricao": "passageiros",
+          "valor": "5",
+          "peso": ""
+        },
+        {
+          "descricao": "espaco",
+          "valor": "ruim",
+          "peso": ""
+        },
+        {
+          "descricao": "bagageiro",
+          "valor": "excelente",
+          "peso": ""
+        }
+      ]
+    },
+    "extras": {
+      "valor": "bom",
+      "subitens": [
+        {
+          "descricao": "conforto",
+          "valor": "bom",
+          "peso": ""
+        },
+        {
+          "descricao": "seguranca",
+          "valor": "otimo",
+          "peso": ""
+        },
+        {
+          "descricao": "estilo",
+          "valor": "bom",
           "peso": ""
         }
       ]
